@@ -144,36 +144,25 @@
               help_text.innerHTML=`Help report ${report}`;
             }
             function newGame() {
-    
     checkCount = 0;
     penalty = 0;
     lastCheck = 0;
     gameOver = false;
-
-    
     treasureLocation = Math.floor(Math.random() * 25);
     trapLocation = Math.floor(Math.random() * 25);
-
-    
     while (trapLocation === treasureLocation) {
       trapLocation = Math.floor(Math.random() * 25);
     }
-
-
     for (let i = 0; i < 25; i++) {
       const id = `location${i}`;
       const imageElement = document.getElementById(id);
       imageElement.src = "location.jpg";
       imageElement.style.borderColor = "white";
     }
-
-
     document.getElementById("locations").innerText = `Number of locations checked is ${checkCount}`;
     document.getElementById("penalty").innerText =` Penalty is ${penalty}`;
     document.getElementById("help").innerText = "Help report";
   }
-
-    
     </script>  
 </body>
 </html>
