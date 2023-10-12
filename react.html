@@ -11,36 +11,16 @@
 </head>
 <body>
 
-  <h2>speed check Venkateswararao</h2>
+  <h2>speed check by Venkateswararao</h2>
   <div id ="target">Your time</div>
-
   <div id="counter">Count</div>
-
   <button type="button" onclick="startTime()">Start Timer</button>
-
   <button type="button"  onclick="recordTime()">React</button>
   <script>
     let reactTime = undefined;
     function recordTime(){
       reactTime = Date.now();
       console.log(reactTime);
-    }
-    function startTime(){
-      for(let i = 0; i<9; i++){
-        setTimeout(function()
-        {document.getElementById("counter").innerHTML='Count: '+ i;
-          }, (8-i)*1000);
-      }
-      setTimeout(()=>{
-        if (reactTime == undefined){
-          document.getElementById("target").innerHTML="Too Slow";
-        }else{
-          let endTime=Date.now()
-          console.log(endTime)
-          let diff = endTime-reactTime
-          document.getElementById("target").innerHTML='Time is '+ diff +'milliseconds';
-        }
-      },8000);
     }
         </script>
 </body>
