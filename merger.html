@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>MergerFlex</title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: rgb(232, 251, 61);
+  }
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+<body>
+    <h2> Builds a merger by Venkateswararao</h2>
+    <div class="flex-container" id="target">
+      <div>row item 1</div>
+      <div>row item 2</div>
+      <div>row item 3</div>
+    </div>
+    <p>Press the button to add an element at the end of the container.</p>
+    <input type="text" id="newItem" placeholder="Enter item text">
+    <button onclick="addEnd()">Add end</button>
+    <p>Press the button to add an element at the beginning of the container.</p>
+    <input type="text" id="newItemStart" placeholder="Enter item text">
+    <button onclick="addStart()">Add start</button>
+  </body>
+  <script>
+    function addEnd() {
+      const inputText = document.getElementById('newItem').value;
+      if (inputText.trim() !== '') {
+        const newElement = document.createElement('div');
+        newElement.innerHTML = inputText;
+        newElement.className = 'merger';
+        document.querySelector('.flex-container').appendChild(newElement);
+      }
+    }
+    function addStart() {
+      const inputText = document.getElementById('newItemStart').value;
+      if (inputText.trim() !== '') {
+        const newElement = document.createElement('div');
+        newElement.innerHTML = inputText;
+        newElement.className = 'merger';
+        const container = document.getElementById('target');
+        container.insertBefore(newElement, container.firstChild);
+      }
+    }
+    function removeEnd() {
+      const container = document.getElementById('target');
+      const children = container.children;
+      if (children.length > 0) {
+        container.removeChild(children[children.length - 1]);
+      }
+    }
+  
+    
+
+  </script>
+  
+</html>	
