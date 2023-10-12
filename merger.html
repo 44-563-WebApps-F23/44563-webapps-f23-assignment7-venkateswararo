@@ -38,6 +38,10 @@
     <p>Press the button to add an element at the front of the container.</p>
     <input type="text" id="newItemFront" placeholder="Enter item text">
     <button onclick="addFront()">Add front</button>
+
+    //creating the bonus button for swap.
+    <p>Press the button to swap two random elements in the container.</p>
+    <button onclick="swap()">Swap</button>
   </body>
   <script>
     function addEnd() {
@@ -84,8 +88,24 @@
         container.insertBefore(newElement, container.firstChild);
       }
     }
-    
-
+    function swap() {
+    const mergerItems = document.getElementsByClassName('merger');
+    const length = mergerItems.length;
+    if (length >= 2) {
+      const index1 = Math.floor(Math.random() * length);
+      let index2 = Math.floor(Math.random() * length);
+      while (index2 === index1) {
+        index2 = Math.floor(Math.random() * length);
+      }
+      const parent = document.getElementById('target');
+      const items1 = mergerItems[index1];
+      const items2 = mergerItems[index2];
+      const items1Next = item1.nextSibling;
+      const items2Next = item2.nextSibling;
+      parent.insertBefore(items1, items2Next);
+      parent.insertBefore(items2, items1Next);
+    }
+  }
   </script>
   
 </html>	
